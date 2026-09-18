@@ -1,0 +1,2184 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Our Medicines | Tavisa Life Sciences</title>
+
+    <meta name="description"
+          content="Explore the pharmaceutical product portfolio of Tavisa Life Sciences, including tablets, capsules, soft gels and syrups.">
+
+    <meta name="keywords"
+          content="Tavisa Life Sciences medicines, pharmaceutical products, Tavisa medicines, pharma products India">
+
+    <meta name="author" content="Tavisa Life Sciences LLP">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap"
+          rel="stylesheet">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- AOS -->
+    <link rel="stylesheet"
+          href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+
+
+    <style>
+
+        /* =====================================================
+           PRODUCTS PAGE
+        ===================================================== */
+
+        .products-page {
+            background: #f7faff;
+        }
+
+
+        /* -----------------------------------------------------
+           PAGE HERO
+        ----------------------------------------------------- */
+
+        .products-hero {
+            position: relative;
+            overflow: hidden;
+            padding: 150px 0 100px;
+            background:
+                radial-gradient(circle at 85% 20%,
+                    rgba(26, 109, 216, .14),
+                    transparent 28%),
+                radial-gradient(circle at 15% 80%,
+                    rgba(0, 169, 157, .10),
+                    transparent 25%),
+                #071b3a;
+        }
+
+        .products-hero::before {
+            content: "";
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            right: -180px;
+            top: -220px;
+            border-radius: 50%;
+            border: 1px solid rgba(255,255,255,.12);
+        }
+
+        .products-hero::after {
+            content: "";
+            position: absolute;
+            width: 700px;
+            height: 700px;
+            left: -420px;
+            bottom: -550px;
+            border-radius: 50%;
+            border: 1px solid rgba(255,255,255,.08);
+        }
+
+        .products-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 850px;
+        }
+
+        .products-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 22px;
+            color: #65d8ce;
+            font-size: .68rem;
+            font-weight: 800;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+        }
+
+        .products-eyebrow span {
+            width: 28px;
+            height: 2px;
+            background: #65d8ce;
+        }
+
+        .products-hero h1 {
+            margin: 0 0 25px;
+            color: #ffffff;
+            font-family: "Manrope", sans-serif;
+            font-size: clamp(2.8rem, 6vw, 5.4rem);
+            line-height: 1.03;
+            letter-spacing: -.055em;
+        }
+
+        .products-hero h1 span {
+            color: #65d8ce;
+        }
+
+        .products-hero p {
+            max-width: 720px;
+            color: rgba(255,255,255,.72);
+            font-size: 1.08rem;
+            line-height: 1.8;
+        }
+
+
+        /* -----------------------------------------------------
+           PORTFOLIO INTRO
+        ----------------------------------------------------- */
+
+        .portfolio-intro {
+            padding: 90px 0 50px;
+        }
+
+        .portfolio-intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: end;
+        }
+
+        .portfolio-intro h2 {
+            margin: 0;
+            color: #071b3a;
+            font-family: "Manrope", sans-serif;
+            font-size: clamp(2rem, 4vw, 3.4rem);
+            line-height: 1.12;
+            letter-spacing: -.045em;
+        }
+
+        .portfolio-intro h2 span {
+            color: #176bd4;
+        }
+
+        .portfolio-intro-copy {
+            color: #64748b;
+            line-height: 1.85;
+        }
+
+        .portfolio-intro-copy strong {
+            color: #071b3a;
+        }
+
+
+        /* -----------------------------------------------------
+           FILTER BAR
+        ----------------------------------------------------- */
+
+        .product-filter-section {
+            padding: 25px 0 45px;
+        }
+
+        .product-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 8px;
+            width: fit-content;
+            max-width: 100%;
+            border: 1px solid #e4ebf3;
+            border-radius: 18px;
+            background: #ffffff;
+            box-shadow: 0 10px 30px rgba(7,27,58,.045);
+        }
+
+        .product-filter {
+            border: 0;
+            padding: 11px 18px;
+            border-radius: 12px;
+            background: transparent;
+            color: #64748b;
+            font-family: "DM Sans", sans-serif;
+            font-size: .8rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: .25s ease;
+        }
+
+        .product-filter:hover,
+        .product-filter.active {
+            background: #071b3a;
+            color: #ffffff;
+        }
+
+
+        /* -----------------------------------------------------
+           PRODUCT GRID
+        ----------------------------------------------------- */
+
+        .products-catalogue {
+            padding: 25px 0 100px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .product-card {
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 470px;
+            border: 1px solid #e3eaf3;
+            border-radius: 24px;
+            background: #ffffff;
+            box-shadow: 0 12px 35px rgba(7,27,58,.055);
+            transition:
+                transform .3s ease,
+                box-shadow .3s ease,
+                border-color .3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(23,107,212,.25);
+            box-shadow: 0 25px 55px rgba(7,27,58,.12);
+        }
+
+        .product-card.hidden {
+            display: none;
+        }
+
+
+        /* Product Image */
+
+        .product-image {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 245px;
+            padding: 25px;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at 75% 20%,
+                    rgba(23,107,212,.11),
+                    transparent 32%),
+                linear-gradient(145deg,#f8fbff,#edf5ff);
+        }
+
+        .product-image::before {
+            content: "";
+            position: absolute;
+            width: 170px;
+            height: 170px;
+            right: -55px;
+            top: -55px;
+            border-radius: 50%;
+            background: rgba(23,107,212,.06);
+        }
+
+        .product-image img {
+            position: relative;
+            z-index: 2;
+            max-width: 90%;
+            max-height: 205px;
+            object-fit: contain;
+            filter: drop-shadow(0 15px 18px rgba(7,27,58,.14));
+            transition: transform .35s ease;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+
+        .product-image-fallback {
+            position: relative;
+            z-index: 2;
+            width: 110px;
+            height: 140px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            background: linear-gradient(145deg,#ffffff,#edf4ff);
+            border: 1px solid #dbe5f1;
+            box-shadow: 0 15px 25px rgba(7,27,58,.10);
+            color: #176bd4;
+            font-family: "Manrope", sans-serif;
+            font-size: 1.2rem;
+            font-weight: 800;
+        }
+
+
+        /* Product Content */
+
+        .product-content {
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            padding: 26px;
+        }
+
+        .product-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            margin-bottom: 12px;
+        }
+
+        .product-category {
+            display: inline-flex;
+            width: fit-content;
+            padding: 6px 9px;
+            border-radius: 8px;
+            background: #edf5ff;
+            color: #176bd4;
+            font-size: .58rem;
+            font-weight: 800;
+            letter-spacing: .09em;
+            text-transform: uppercase;
+        }
+
+        .product-number {
+            color: #a7b1bf;
+            font-family: "Manrope", sans-serif;
+            font-size: .65rem;
+            font-weight: 800;
+        }
+
+        .product-content h3 {
+            margin: 0 0 12px;
+            color: #071b3a;
+            font-family: "Manrope", sans-serif;
+            font-size: 1.35rem;
+            line-height: 1.25;
+        }
+
+        .product-content h3 span {
+            color: #176bd4;
+        }
+
+        .product-composition {
+            margin-bottom: 18px;
+            color: #64748b;
+            font-size: .78rem;
+            line-height: 1.65;
+        }
+
+        .product-composition strong {
+            color: #071b3a;
+        }
+
+
+        /* Product uses */
+
+        .product-uses {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: auto;
+        }
+
+        .product-use {
+            padding: 6px 9px;
+            border-radius: 7px;
+            background: #f4f7fa;
+            color: #66758a;
+            font-size: .63rem;
+            font-weight: 600;
+        }
+
+
+        /* Product Footer */
+
+        .product-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            margin-top: 22px;
+            padding-top: 17px;
+            border-top: 1px solid #edf1f5;
+        }
+
+        .product-form {
+            color: #8a97a8;
+            font-size: .65rem;
+            font-weight: 700;
+        }
+
+        .product-link {
+            color: #176bd4;
+            font-size: .72rem;
+            font-weight: 800;
+            text-decoration: none;
+        }
+
+
+        /* -----------------------------------------------------
+           FEATURED PRODUCT
+        ----------------------------------------------------- */
+
+        .featured-product-section {
+            padding: 30px 0 100px;
+        }
+
+        .featured-product {
+            position: relative;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: .9fr 1.1fr;
+            min-height: 430px;
+            border-radius: 30px;
+            background: #071b3a;
+        }
+
+        .featured-product::after {
+            content: "";
+            position: absolute;
+            width: 420px;
+            height: 420px;
+            right: -180px;
+            top: -180px;
+            border: 1px solid rgba(255,255,255,.10);
+            border-radius: 50%;
+        }
+
+        .featured-visual {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 430px;
+            padding: 45px;
+            background:
+                radial-gradient(circle at center,
+                    rgba(0,169,157,.20),
+                    transparent 55%);
+        }
+
+        .featured-visual img {
+            position: relative;
+            z-index: 2;
+            max-width: 90%;
+            max-height: 350px;
+            object-fit: contain;
+            filter: drop-shadow(0 25px 35px rgba(0,0,0,.3));
+        }
+
+        .featured-content {
+            position: relative;
+            z-index: 3;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 55px;
+        }
+
+        .featured-label {
+            margin-bottom: 15px;
+            color: #65d8ce;
+            font-size: .64rem;
+            font-weight: 800;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+        }
+
+        .featured-content h2 {
+            margin: 0 0 17px;
+            color: #ffffff;
+            font-family: "Manrope", sans-serif;
+            font-size: clamp(2rem,4vw,3.3rem);
+            line-height: 1.08;
+            letter-spacing: -.04em;
+        }
+
+        .featured-content h2 span {
+            color: #65d8ce;
+        }
+
+        .featured-content p {
+            max-width: 600px;
+            margin-bottom: 20px;
+            color: rgba(255,255,255,.70);
+            line-height: 1.8;
+        }
+
+        .featured-composition {
+            padding: 17px 20px;
+            border-left: 3px solid #65d8ce;
+            background: rgba(255,255,255,.05);
+            color: rgba(255,255,255,.78);
+            font-size: .75rem;
+            line-height: 1.7;
+        }
+
+
+        /* -----------------------------------------------------
+           MEDICAL INFORMATION NOTICE
+        ----------------------------------------------------- */
+
+        .medical-notice-section {
+            padding: 0 0 100px;
+        }
+
+        .medical-notice {
+            display: flex;
+            align-items: flex-start;
+            gap: 18px;
+            padding: 24px 26px;
+            border: 1px solid #dce6f0;
+            border-radius: 18px;
+            background: #ffffff;
+        }
+
+        .medical-notice-icon {
+            flex: 0 0 42px;
+            width: 42px;
+            height: 42px;
+            display: grid;
+            place-items: center;
+            border-radius: 12px;
+            background: #edf5ff;
+            color: #176bd4;
+            font-weight: 800;
+        }
+
+        .medical-notice h4 {
+            margin: 0 0 5px;
+            color: #071b3a;
+            font-family: "Manrope", sans-serif;
+        }
+
+        .medical-notice p {
+            margin: 0;
+            color: #718096;
+            font-size: .76rem;
+            line-height: 1.7;
+        }
+
+
+        /* -----------------------------------------------------
+           CTA
+        ----------------------------------------------------- */
+
+        .products-cta {
+            padding: 0 0 100px;
+        }
+
+        .products-cta-box {
+            position: relative;
+            overflow: hidden;
+            padding: 55px;
+            border-radius: 28px;
+            background:
+                linear-gradient(135deg,#176bd4,#0a8e91);
+        }
+
+        .products-cta-box::after {
+            content: "";
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            right: -140px;
+            top: -190px;
+            border: 1px solid rgba(255,255,255,.20);
+            border-radius: 50%;
+        }
+
+        .products-cta-content {
+            position: relative;
+            z-index: 2;
+            max-width: 720px;
+        }
+
+        .products-cta-box .section-label {
+            color: rgba(255,255,255,.75);
+        }
+
+        .products-cta-box h2 {
+            margin: 0 0 15px;
+            color: #ffffff;
+            font-family: "Manrope", sans-serif;
+            font-size: clamp(2rem,4vw,3.2rem);
+            line-height: 1.1;
+        }
+
+        .products-cta-box h2 span {
+            color: #bff8f1;
+        }
+
+        .products-cta-box p {
+            max-width: 650px;
+            margin-bottom: 25px;
+            color: rgba(255,255,255,.78);
+            line-height: 1.8;
+        }
+
+
+        /* -----------------------------------------------------
+           RESPONSIVE
+        ----------------------------------------------------- */
+
+        @media (max-width: 1050px) {
+
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .featured-product {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-visual {
+                min-height: 350px;
+            }
+
+            .portfolio-intro-grid {
+                gap: 40px;
+            }
+
+        }
+
+
+        @media (max-width: 760px) {
+
+            .products-hero {
+                padding: 125px 0 80px;
+            }
+
+            .portfolio-intro {
+                padding-top: 65px;
+            }
+
+            .portfolio-intro-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .product-filters {
+                width: 100%;
+            }
+
+            .product-filter {
+                flex: 1;
+                min-width: 100px;
+            }
+
+            .featured-content {
+                padding: 35px 28px;
+            }
+
+            .featured-visual {
+                min-height: 300px;
+                padding: 30px;
+            }
+
+            .products-cta-box {
+                padding: 38px 28px;
+            }
+
+            .medical-notice {
+                flex-direction: column;
+            }
+
+        }
+
+
+        @media (max-width: 480px) {
+
+            .product-image {
+                height: 220px;
+            }
+
+            .product-content {
+                padding: 22px;
+            }
+
+            .product-filter {
+                min-width: auto;
+                padding: 10px 12px;
+                font-size: .68rem;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body class="products-page">
+
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header class="site-header" id="siteHeader">
+
+    <div class="container nav-container">
+
+        <a href="index.html" class="brand">
+
+            <div class="brand-mark">
+                <span>T</span>
+            </div>
+
+            <div class="brand-text">
+                <strong>TAVISA</strong>
+                <small>LIFE SCIENCES</small>
+            </div>
+
+        </a>
+
+
+        <nav class="main-nav" id="mainNav">
+
+            <a href="index.html">Home</a>
+
+            <a href="about.html">About Us</a>
+
+            <a href="products.html" class="active">
+                Our Medicines
+            </a>
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+        </nav>
+
+
+        <a href="contact.html" class="nav-cta">
+            Partner With Us
+            <span>→</span>
+        </a>
+
+
+        <button class="menu-toggle"
+                id="menuToggle"
+                aria-label="Open navigation menu"
+                aria-expanded="false">
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </button>
+
+    </div>
+
+</header>
+
+
+
+<main>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="products-hero">
+
+    <div class="container">
+
+        <div class="products-hero-content"
+             data-aos="fade-up">
+
+            <div class="products-eyebrow">
+
+                <span></span>
+
+                TAVISA PHARMACEUTICAL PORTFOLIO
+
+            </div>
+
+
+            <h1>
+
+                Medicines built around
+                <span>healthcare needs.</span>
+
+            </h1>
+
+
+            <p>
+
+                Explore the growing portfolio of Tavisa Life Sciences,
+                covering pharmaceutical tablets, capsules, soft gels
+                and syrups across a range of healthcare applications.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     INTRO
+========================================================= -->
+
+<section class="portfolio-intro">
+
+    <div class="container">
+
+        <div class="portfolio-intro-grid">
+
+            <div data-aos="fade-right">
+
+                <div class="section-label">
+                    <span>01</span>
+                    OUR PORTFOLIO
+                </div>
+
+                <h2>
+
+                    A focused portfolio
+                    of <span>medicine brands.</span>
+
+                </h2>
+
+            </div>
+
+
+            <div class="portfolio-intro-copy"
+                 data-aos="fade-left">
+
+                <p>
+
+                    Tavisa Life Sciences is developing a growing
+                    portfolio of pharmaceutical products with a
+                    focus on quality, consistency and responsible
+                    healthcare delivery.
+
+                </p>
+
+                <p>
+
+                    Product information presented on this page is
+                    based on the product literature supplied for
+                    the respective Tavisa brands.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     FILTER
+========================================================= -->
+
+<section class="product-filter-section">
+
+    <div class="container">
+
+        <div class="product-filters">
+
+            <button class="product-filter active"
+                    data-filter="all">
+                All Products
+            </button>
+
+            <button class="product-filter"
+                    data-filter="tablet">
+                Tablets
+            </button>
+
+            <button class="product-filter"
+                    data-filter="capsule">
+                Capsules
+            </button>
+
+            <button class="product-filter"
+                    data-filter="syrup">
+                Syrups
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     PRODUCTS
+========================================================= -->
+
+<section class="products-catalogue">
+
+    <div class="container">
+
+        <div class="products-grid">
+
+
+            <!-- =================================================
+                 01 TASIBONE
+            ================================================== -->
+
+            <article class="product-card"
+                     data-category="capsule"
+                     data-aos="fade-up">
+
+                <div class="product-image">
+
+                    <img
+                        src="assets/images/products/tasibone.jpg"
+                        alt="Tasibone Soft Gel Capsule"
+                        onerror="this.style.display='none';">
+
+                    <div class="product-image-fallback">
+                        TASIBONE
+                    </div>
+
+                </div>
+
+
+                <div class="product-content">
+
+                    <div class="product-top">
+
+                        <span class="product-category">
+                            Soft Gel Capsule
+                        </span>
+
+                        <span class="product-number">
+                            01
+                        </span>
+
+                    </div>
+
+
+                    <h3>
+                        Tasibone
+                    </h3>
+
+
+                    <p class="product-composition">
+
+                        <strong>Composition:</strong><br>
+
+                        Calcitriol 0.25 mcg +
+                        Calcium Carbonate 1250 mg +
+                        Zinc 7.5 mg +
+                        Magnesium 50 mg +
+                        Vitamin K2-7 45 mcg +
+                        Methylcobalamin 1500 mcg +
+                        L-Methyl Folate 800 mcg.
+
+                    </p>
+
+
+                    <div class="product-uses">
+
+                        <span class="product-use">
+                            Bone Health
+                        </span>
+
+                        <span class="product-use">
+                            Osteoporosis
+                        </span>
+
+                        <span class="product-use">
+                            Pregnancy
+                        </span>
+
+                        <span class="product-use">
+                            Neuropathy
+                        </span>
+
+                    </div>
+
+
+                    <div class="product-footer">
+
+                        <span class="product-form">
+                            Soft Gel Capsule
+                        </span>
+
+                        <a href="#"
+                           class="product-link"
+                           onclick="return false;">
+                            Product Details →
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- =================================================
+                 02 TOIFER-ZF
+            ================================================== -->
+
+            <article class="product-card"
+                     data-category="tablet"
+                     data-aos="fade-up"
+                     data-aos-delay="80">
+
+                <div class="product-image">
+
+                    <img
+                        src="assets/images/products/toifer-zf.jpg"
+                        alt="Toifer-ZF Tablet"
+                        onerror="this.style.display='none';">
+
+                    <div class="product-image-fallback">
+                        TOIFER-ZF
+                    </div>
+
+                </div>
+
+
+                <div class="product-content">
+
+                    <div class="product-top">
+
+                        <span class="product-category">
+                            Tablet
+                        </span>
+
+                        <span class="product-number">
+                            02
+                        </span>
+
+                    </div>
+
+
+                    <h3>
+                        Toifer-ZF
+                    </h3>
+
+
+                    <p class="product-composition">
+
+                        <strong>Composition:</strong><br>
+
+                        Ferrous Ascorbate 100 mg +
+                        Folic Acid 1.5 mg +
+                        Zinc Sulphate 22.5 mg.
+
+                    </p>
+
+
+                    <div class="product-uses">
+
+                        <span class="product-use">
+                            Anemia
+                        </span>
+
+                        <span class="product-use">
+                            Pregnancy
+                        </span>
+
+                        <span class="product-use">
+                            Lactation
+                        </span>
+
+                        <span class="product-use">
+                            Menorrhagia
+                        </span>
+
+                        <span class="product-use">
+                            Blood Loss
+                        </span>
+
+                    </div>
+
+
+                    <div class="product-footer">
+
+                        <span class="product-form">
+                            Tablet
+                        </span>
+
+                        <!-- <a href="#"
+                           class="product-link"
+                           onclick="return false;">
+                            Product Details →
+                        </a> -->
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- =================================================
+                 03 INTOGYN
+            ================================================== -->
+
+            <article class="product-card"
+                     data-category="tablet"
+                     data-aos="fade-up"
+                     data-aos-delay="160">
+
+                <div class="product-image">
+
+                    <img
+                        src="assets/images/products/intogyn.jpg"
+                        alt="Intogyn Tablets"
+                        onerror="this.style.display='none';">
+
+                    <div class="product-image-fallback">
+                        INTOGYN
+                    </div>
+
+                </div>
+
+
+                <div class="product-content">
+
+                    <div class="product-top">
+
+                        <span class="product-category">
+                            Tablet
+                        </span>
+
+                        <span class="product-number">
+                            03
+                        </span>
+
+                    </div>
+
+
+                    <h3>
+                        Into<span>gyn</span>
+                    </h3>
+
+
+                    <p class="product-composition">
+
+                        <strong>Composition:</strong><br>
+
+                        Collagen Peptide Type 2,
+                        Rosehip Extract,
+                        Sodium Hyaluronate,
+                        Chondroitin Sulphate Sodium,
+                        Vitamin C, Boswellia Extract &
+                        Curcuma Longa Extract.
+
+                    </p>
+
+
+                    <div class="product-uses">
+
+                        <span class="product-use">
+                            Joint Health
+                        </span>
+
+                        <span class="product-use">
+                            Mobility
+                        </span>
+
+                        <span class="product-use">
+                            Joint Support
+                        </span>
+
+                        <span class="product-use">
+                            Anti-inflammatory Support
+                        </span>
+
+                    </div>
+
+
+                    <div class="product-footer">
+
+                        <span class="product-form">
+                            10 × 10 Tablets
+                        </span>
+
+                        <!-- <a href="#"
+                           class="product-link"
+                           onclick="return false;">
+                            Product Details →
+                        </a> -->
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- =================================================
+                 04 LIPENE-DS
+            ================================================== -->
+
+            <article class="product-card"
+                     data-category="syrup"
+                     data-aos="fade-up">
+
+                <div class="product-image">
+
+                    <img
+                        src="assets/images/products/lipene-ds.jpg"
+                        alt="Lipene-DS"
+                        onerror="this.style.display='none';">
+
+                    <div class="product-image-fallback">
+                        LIPENE-DS
+                    </div>
+
+                </div>
+
+
+                <div class="product-content">
+
+                    <div class="product-top">
+
+                        <span class="product-category">
+                            Syrup
+                        </span>
+
+                        <span class="product-number">
+                            04
+                        </span>
+
+                    </div>
+
+
+                    <h3>
+                        Lipene-DS
+                    </h3>
+
+
+                    <p class="product-composition">
+
+                        <strong>Product information:</strong><br>
+
+                        Product composition and detailed
+                        product literature will be added
+                        once the official product information
+                        is provided.
+
+                    </p>
+
+
+                    <div class="product-uses">
+
+                        <span class="product-use">
+                            Tavisa Portfolio
+                        </span>
+
+                        <span class="product-use">
+                            Product Brand
+                        </span>
+
+                    </div>
+
+
+                    <div class="product-footer">
+
+                        <span class="product-form">
+                            Product
+                        </span>
+
+                        <!-- <a href="#"
+                           class="product-link"
+                           onclick="return false;">
+                            Details →
+                        </a> -->
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- =================================================
+                 05 RIBDOM-SR
+            ================================================== -->
+
+            <article class="product-card"
+                     data-category="tablet"
+                     data-aos="fade-up"
+                     data-aos-delay="80">
+
+                <div class="product-image">
+
+                    <img
+                        src="assets/images/products/ribdom-sr.jpg"
+                        alt="Ribdom-SR Capsule"
+                        onerror="this.style.display='none';">
+
+                    <div class="product-image-fallback">
+                        RIBDOM-SR
+                    </div>
+
+                </div>
+
+
+                <div class="product-content">
+
+                    <div class="product-top">
+
+                        <span class="product-category">
+                            Tablet
+                        </span>
+
+                        <span class="product-number">
+                            05
+                        </span>
+
+                    </div>
+
+
+                    <h3>
+                        Ribdom-SR
+                    </h3>
+
+
+                    <p class="product-composition">
+
+                        <strong>Composition:</strong><br>
+
+                        Rabeprazole Sodium 20 mg (EC) +
+                        Domperidone 30 mg (SR).
+
+                    </p>
+
+
+                    <div class="product-uses">
+
+                        <span class="product-use">
+                            Peptic Disorders
+                        </span>
+
+                        <span class="product-use">
+                            Heartburn
+                        </span>
+
+                        <span class="product-use">
+                            Indigestion
+                        </span>
+
+                        <span class="product-use">
+                            Gastric Ulcer
+                        </span>
+
+                    </div>
+
+
+                    <div class="product-footer">
+
+                        <span class="product-form">
+                            Tablet
+                        </span>
+
+                        <!-- <a href="#"
+                           class="product-link"
+                           onclick="return false;">
+                            Product Details →
+                        </a> -->
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- =================================================
+                 06 TOYCOLVIT PLUS
+            ================================================== -->
+
+            <article class="product-card"
+                     data-category="softgel"
+                     data-aos="fade-up"
+                     data-aos-delay="160">
+
+                <div class="product-image">
+
+                    <img
+                        src="assets/images/products/toycolvit-plus.jpg"
+                        alt="Toycolvit Plus Soft Gel Capsule"
+                        onerror="this.style.display='none';">
+
+                    <div class="product-image-fallback">
+                        TOYCOLVIT
+                    </div>
+
+                </div>
+
+
+                <div class="product-content">
+
+                    <div class="product-top">
+
+                        <span class="product-category">
+                            Soft Gel Capsule
+                        </span>
+
+                        <span class="product-number">
+                            06
+                        </span>
+
+                    </div>
+
+
+                    <h3>
+                        Toycolvit Plus
+                    </h3>
+
+
+                    <p class="product-composition">
+
+                        <strong>Composition:</strong><br>
+
+                        Omega-3 Fatty Acid, Green Tea Extract,
+                        Ginkgo Biloba, Ginseng, Grape Seed Extract,
+                        Vitamins, Minerals & Trace Elements.
+
+                    </p>
+
+
+                    <div class="product-uses">
+
+                        <span class="product-use">
+                            General Debility
+                        </span>
+
+                        <span class="product-use">
+                            Weakness
+                        </span>
+
+                        <span class="product-use">
+                            Post Pregnancy
+                        </span>
+
+                        <span class="product-use">
+                            Chronic Illness
+                        </span>
+
+                        <span class="product-use">
+                            Oxidative Stress
+                        </span>
+
+                    </div>
+
+
+                    <div class="product-footer">
+
+                        <span class="product-form">
+                            Soft Gel Capsule
+                        </span>
+
+                        <!-- <a href="#"
+                           class="product-link"
+                           onclick="return false;">
+                            Product Details →
+                        </a> -->
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- =================================================
+                 07 ANVOGYN AX
+            ================================================== -->
+
+            <article class="product-card"
+                     data-category="tablet"
+                     data-aos="fade-up">
+
+                <div class="product-image">
+
+                    <img
+                        src="assets/images/products/anvogyn-ax.jpg"
+                        alt="Anvogyn AX Tablets"
+                        onerror="this.style.display='none';">
+
+                    <div class="product-image-fallback">
+                        ANVOGYN
+                    </div>
+
+                </div>
+
+
+                <div class="product-content">
+
+                    <div class="product-top">
+
+                        <span class="product-category">
+                            Tablet
+                        </span>
+
+                        <span class="product-number">
+                            07
+                        </span>
+
+                    </div>
+
+
+                    <h3>
+                        Anvogyn-AX
+                    </h3>
+
+
+                    <p class="product-composition">
+
+                        <strong>Composition:</strong><br>
+
+                        Montelukast 10 mg +
+                        Levocetirizine 5 mg +
+                        Ambroxol Hydrochloride (SR) 75 mg.
+
+                    </p>
+
+
+                    <div class="product-uses">
+
+                        <span class="product-use">
+                            Allergic Rhinitis
+                        </span>
+
+                        <span class="product-use">
+                            Seasonal Allergies
+                        </span>
+
+                        <span class="product-use">
+                            Cough & Mucus
+                        </span>
+
+                        <span class="product-use">
+                            Asthma
+                        </span>
+
+                        <span class="product-use">
+                            Sinusitis
+                        </span>
+
+                    </div>
+
+
+                    <div class="product-footer">
+
+                        <span class="product-form">
+                            Tablet
+                        </span>
+
+                        <!-- <a href="#"
+                           class="product-link"
+                           onclick="return false;">
+                            Product Details →
+                        </a> -->
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- =================================================
+                 08 ANVOGYN SYRUP
+            ================================================== -->
+
+            <article class="product-card"
+                     data-category="syrup"
+                     data-aos="fade-up"
+                     data-aos-delay="80">
+
+                <div class="product-image">
+
+                    <img
+                        src="assets/images/products/anvogyn-syrup.jpg"
+                        alt="Anvogyn Syrup"
+                        onerror="this.style.display='none';">
+
+                    <div class="product-image-fallback">
+                        ANVOGYN
+                    </div>
+
+                </div>
+
+
+                <div class="product-content">
+
+                    <div class="product-top">
+
+                        <span class="product-category">
+                            Syrup
+                        </span>
+
+                        <span class="product-number">
+                            08
+                        </span>
+
+                    </div>
+
+
+                    <h3>
+                        Anvogyn Syrup
+                    </h3>
+
+
+                    <p class="product-composition">
+
+                        <strong>Composition:</strong><br>
+
+                        Cyproheptadine HCl 2 mg +
+                        Tricholine Citrate 275 mg +
+                        Sorbitol.
+
+                    </p>
+
+
+                    <div class="product-uses">
+
+                        <span class="product-use">
+                            Appetite Support
+                        </span>
+
+                        <span class="product-use">
+                            Indigestion
+                        </span>
+
+                        <span class="product-use">
+                            Anorexia
+                        </span>
+
+                        <span class="product-use">
+                            Digestive Support
+                        </span>
+
+                        <span class="product-use">
+                            Malabsorption
+                        </span>
+
+                    </div>
+
+
+                    <div class="product-footer">
+
+                        <span class="product-form">
+                            Syrup
+                        </span>
+
+                        <!-- <a href="#"
+                           class="product-link"
+                           onclick="return false;">
+                            Product Details →
+                        </a> -->
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- =================================================
+                 09 DYVERO
+            ================================================== -->
+
+            <article class="product-card"
+                     data-category="tablet"
+                     data-aos="fade-up"
+                     data-aos-delay="160">
+
+                <div class="product-image">
+
+                    <img
+                        src="assets/images/products/dyvero.jpg"
+                        alt="Dyvero Tablets"
+                        onerror="this.style.display='none';">
+
+                    <div class="product-image-fallback">
+                        DYVERO
+                    </div>
+
+                </div>
+
+
+                <div class="product-content">
+
+                    <div class="product-top">
+
+                        <span class="product-category">
+                            Tablet
+                        </span>
+
+                        <span class="product-number">
+                            09
+                        </span>
+
+                    </div>
+
+
+                    <h3>
+                        Dyvero
+                    </h3>
+
+
+                    <p class="product-composition">
+
+                        <strong>Composition:</strong><br>
+
+                        Dydrogesterone Tablets IP 10 mg.
+
+                    </p>
+
+
+                    <div class="product-uses">
+
+                        <span class="product-use">
+                            Dysmenorrhoea
+                        </span>
+
+                        <span class="product-use">
+                            Endometriosis
+                        </span>
+
+                        <span class="product-use">
+                            Irregular Cycles
+                        </span>
+
+                        <span class="product-use">
+                            Infertility
+                        </span>
+
+                        <span class="product-use">
+                            Pregnancy Support
+                        </span>
+
+                    </div>
+
+
+                    <div class="product-footer">
+
+                        <span class="product-form">
+                            1 × 10 Tablets
+                        </span>
+
+                        <!-- <a href="#"
+                           class="product-link"
+                           onclick="return false;">
+                            Product Details →
+                        </a> -->
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================================================
+     MEDICAL NOTICE
+========================================================= -->
+
+<section class="medical-notice-section">
+
+    <div class="container">
+
+        <div class="medical-notice">
+
+            <div class="medical-notice-icon">
+                Rx
+            </div>
+
+
+            <div>
+
+                <h4>
+                    Important Product Information
+                </h4>
+
+                <p>
+
+                    The information presented on this page is
+                    provided for product-information purposes and
+                    is based on the product literature supplied by
+                    Tavisa Life Sciences. It is not intended to
+                    replace professional medical advice, diagnosis
+                    or prescribing information. Medicines should be
+                    used only according to the applicable prescribing
+                    information and under the guidance of a qualified
+                    healthcare professional where required.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     CTA
+========================================================= -->
+
+<section class="products-cta">
+
+    <div class="container">
+
+        <div class="products-cta-box"
+             data-aos="fade-up">
+
+            <div class="products-cta-content">
+
+                <div class="section-label">
+                    TAVISA LIFE SCIENCES
+                </div>
+
+
+                <h2>
+
+                    Lets Our Meds
+                    <span>Help You Out.</span>
+
+                </h2>
+
+
+                <p>
+
+                    Interested in Tavisa's pharmaceutical products. <br>
+                    Connect with our team.
+
+                </p>
+
+
+                <a href="contact.html"
+                   class="btn btn-light">
+
+                    Contact Tavisa
+
+                    <span>→</span>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="site-footer">
+
+    <div class="container">
+
+        <div class="footer-grid">
+
+
+            <div class="footer-brand">
+
+                <a href="index.html"
+                   class="brand footer-logo">
+
+                    <div class="brand-mark">
+                        <span>T</span>
+                    </div>
+
+                    <div class="brand-text">
+                        <strong>TAVISA LIFE SCIENCES</strong>
+                    </div>
+
+                </a>
+
+
+                <p>
+
+                    A pharmaceutical company focused on building
+                    quality medicine brands for better healthcare.
+
+                </p>
+
+
+                <div class="footer-tagline">
+
+                    Let our Meds help you out.
+
+                </div>
+
+            </div>
+
+
+
+            <div class="footer-links">
+
+                <h4>
+                    Explore
+                </h4>
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="about.html">
+                    About Us
+                </a>
+
+                <a href="products.html">
+                    Our Medicines
+                </a>
+
+                <a href="contact.html">
+                    Contact
+                </a>
+
+            </div>
+
+
+
+            <div class="footer-links">
+
+                <h4>
+                    Portfolio
+                </h4>
+
+                <a href="products.html">
+                    Tasibone
+                </a>
+
+                <a href="products.html">
+                    Toifer-ZF
+                </a>
+
+                <a href="products.html">
+                    Intogyn
+                </a>
+
+                <a href="products.html">
+                    Ribdom-SR
+                </a>
+
+                <a href="products.html">
+                    View All Medicines →
+                </a>
+
+            </div>
+
+
+
+            <div class="footer-contact">
+
+                <h4>
+                    Presence
+                </h4>
+
+                <p>
+                    New Delhi, India
+                </p>
+
+                <p>
+                    Gorakhpur, Uttar Pradesh, India
+                </p>
+
+                <p>
+                    Kushinagar, Uttar Pradesh, India
+                </p>
+ 
+                 <p>
+                    Basti, Uttar Pradesh, India
+                </p>
+
+                 <p>
+                    Maharajganj, Uttar Pradesh, India
+                </p>
+
+                 <p>
+                    Padrauna, Uttar Pradesh, India
+                </p>
+
+                 <p>
+                    Mau, Uttar Pradesh, India
+                </p>
+
+                <a href="contact.html">
+                    Contact Tavisa →
+                </a>
+
+            </div>
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+
+                © <span id="currentYear"></span>
+                Tavisa Life Sciences LLP.
+                All Rights Reserved.
+
+            </p>
+
+
+            <p>
+                <!-- Pharmaceutical Manufacturing -->
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =========================================================
+     AOS
+========================================================= -->
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+
+<script>
+
+    AOS.init({
+        duration: 800,
+        once: true,
+        offset: 70,
+        easing: "ease-out-cubic"
+    });
+
+</script>
+
+
+
+<!-- =========================================================
+     MAIN JS
+========================================================= -->
+
+<script src="js/main.js"></script>
+
+
+
+<!-- =========================================================
+     PRODUCT FILTER + YEAR
+========================================================= -->
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    /* -----------------------------------------
+       Current Year
+    ----------------------------------------- */
+
+    const year =
+        document.getElementById("currentYear");
+
+    if (year) {
+        year.textContent =
+            new Date().getFullYear();
+    }
+
+
+    /* -----------------------------------------
+       Product Filters
+    ----------------------------------------- */
+
+    const filterButtons =
+        document.querySelectorAll(".product-filter");
+
+    const productCards =
+        document.querySelectorAll(".product-card");
+
+
+    filterButtons.forEach(function (button) {
+
+        button.addEventListener("click", function () {
+
+            const filter =
+                this.getAttribute("data-filter");
+
+
+            filterButtons.forEach(function (btn) {
+
+                btn.classList.remove("active");
+
+            });
+
+
+            this.classList.add("active");
+
+
+            productCards.forEach(function (card) {
+
+                const category =
+                    card.getAttribute("data-category");
+
+
+                if (
+                    filter === "all" ||
+                    category === filter
+                ) {
+
+                    card.classList.remove("hidden");
+
+                } else {
+
+                    card.classList.add("hidden");
+
+                }
+
+            });
+
+        });
+
+    });
+
+});
+
+</script>
+
+
+</body>
+</html>
+

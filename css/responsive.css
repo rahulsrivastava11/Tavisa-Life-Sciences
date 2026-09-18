@@ -1,0 +1,668 @@
+/* =========================================================
+   TAVISA LIFE SCIENCES
+   RESPONSIVE STYLESHEET
+   ========================================================= */
+
+
+/* =========================================================
+   1200px
+   ========================================================= */
+
+@media (max-width: 1200px) {
+
+    :root {
+        --container: 1120px;
+    }
+
+    .hero-container {
+        grid-template-columns:
+            minmax(0, 1fr)
+            minmax(360px, .85fr);
+
+        gap: 48px;
+    }
+
+    .hero-content h1 {
+        font-size:
+            clamp(
+                3.3rem,
+                5.2vw,
+                4.8rem
+            );
+    }
+
+    .card-top {
+        left: -20px;
+    }
+
+    .card-bottom {
+        right: -20px;
+    }
+
+    .journey-grid,
+    .why-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+}
+
+
+/* =========================================================
+   1000px
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+    .nav-container {
+        min-height: 80px;
+    }
+
+    .main-nav {
+        gap: 22px;
+    }
+
+    .main-nav a {
+        height: 80px;
+
+        font-size: .76rem;
+    }
+
+    .nav-cta {
+        padding-inline: 17px;
+    }
+
+    .hero-section {
+        min-height: auto;
+    }
+
+    .hero-container {
+        grid-template-columns: 1fr;
+
+        gap: 55px;
+
+        padding-top: 65px;
+        padding-bottom: 75px;
+    }
+
+    .hero-content {
+        max-width: 850px;
+    }
+
+    .hero-content h1 {
+        max-width: 850px;
+
+        font-size:
+            clamp(
+                3.4rem,
+                7vw,
+                5rem
+            );
+    }
+
+    .hero-description {
+        max-width: 760px;
+    }
+
+    .hero-visual {
+        max-width: 720px;
+
+        margin-inline: auto;
+    }
+
+    .hero-image-wrapper {
+        min-height: 460px;
+    }
+
+    .hero-image-wrapper > img {
+        height: 460px;
+    }
+
+    .hero-image-fallback {
+        min-height: 460px;
+    }
+
+    .intro-grid,
+    .presence-grid {
+        grid-template-columns: 1fr;
+
+        gap: 45px;
+    }
+
+    .portfolio-header {
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+
+        align-items: start;
+    }
+
+    .medicine-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .partnership-box {
+        padding: 45px;
+    }
+
+    .final-cta-inner {
+        flex-wrap: wrap;
+    }
+
+    .footer-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+}
+
+
+/* =========================================================
+   780px
+   ========================================================= */
+
+@media (max-width: 780px) {
+
+    .container {
+        width:
+            min(
+                var(--container),
+                calc(100% - 32px)
+            );
+    }
+
+    .site-header {
+        position: relative;
+    }
+
+    .nav-container {
+        min-height: 76px;
+    }
+
+    .main-nav {
+        position: fixed;
+
+        top: 76px;
+        left: 16px;
+        right: 16px;
+
+        z-index: 1100;
+
+        display: flex;
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 0;
+
+        padding: 12px;
+
+        border:
+            1px solid
+            var(--border);
+
+        border-radius: 18px;
+
+        background:
+            rgba(255,255,255,.98);
+
+        box-shadow: var(--shadow-lg);
+
+        opacity: 0;
+        visibility: hidden;
+
+        transform: translateY(-12px);
+
+        transition:
+            opacity .25s ease,
+            visibility .25s ease,
+            transform .25s ease;
+    }
+
+    .main-nav.active,
+    body.menu-open .main-nav {
+        opacity: 1;
+
+        visibility: visible;
+
+        transform: translateY(0);
+    }
+
+    .main-nav a {
+        height: auto;
+
+        min-height: 48px;
+
+        padding: 0 15px;
+
+        border-radius: 10px;
+
+        font-size: .85rem;
+    }
+
+    .main-nav a::after {
+        display: none;
+    }
+
+    .main-nav a:hover,
+    .main-nav a.active {
+        background: var(--blue-light);
+    }
+
+    .nav-cta {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block;
+
+        position: relative;
+
+        z-index: 1200;
+    }
+
+    .hero-container {
+        padding-top: 58px;
+        padding-bottom: 65px;
+    }
+
+    .hero-content h1 {
+        font-size:
+            clamp(
+                2.8rem,
+                10vw,
+                4.1rem
+            );
+
+        letter-spacing: -.055em;
+    }
+
+    .hero-description {
+        font-size: .92rem;
+    }
+
+    .hero-trust {
+        flex-wrap: wrap;
+
+        gap: 14px 18px;
+    }
+
+    .hero-image-wrapper {
+        min-height: 390px;
+    }
+
+    .hero-image-wrapper > img {
+        height: 390px;
+    }
+
+    .hero-image-fallback {
+        min-height: 390px;
+    }
+
+    .hero-floating-card {
+        min-width: 195px;
+
+        padding: 12px;
+    }
+
+    .card-top {
+        top: 20px;
+        left: 15px;
+    }
+
+    .card-bottom {
+        right: 15px;
+        bottom: 20px;
+    }
+
+    .journey-grid,
+    .why-grid {
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+    .presence-location-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .partnership-box {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        padding: 38px 30px;
+    }
+
+    .final-cta-inner {
+        align-items: flex-start;
+
+        padding: 35px 30px;
+    }
+
+    .products-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .product-modal-dialog {
+        grid-template-columns: 1fr;
+    }
+
+    .product-modal-image {
+        min-height: 280px;
+    }
+
+    .product-modal-image img {
+        min-height: 280px;
+        max-height: 320px;
+    }
+}
+
+
+/* =========================================================
+   580px
+   ========================================================= */
+
+@media (max-width: 580px) {
+
+    .section {
+        padding: 75px 0;
+    }
+
+    .hero-container {
+        gap: 40px;
+    }
+
+    .hero-content h1 {
+        font-size:
+            clamp(
+                2.65rem,
+                12vw,
+                3.45rem
+            );
+
+        line-height: 1;
+    }
+
+    .hero-description {
+        margin-top: 21px;
+
+        font-size: .86rem;
+
+        line-height: 1.72;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+    }
+
+    .hero-trust {
+        align-items: flex-start;
+    }
+
+    .trust-divider {
+        display: none;
+    }
+
+    .trust-item {
+        flex-direction: column;
+
+        gap: 1px;
+    }
+
+    .hero-image-wrapper {
+        min-height: 320px;
+    }
+
+    .hero-image-wrapper > img {
+        height: 320px;
+    }
+
+    .hero-image-fallback {
+        min-height: 320px;
+    }
+
+    .medical-cross {
+        width: 76px;
+        height: 76px;
+
+        margin-bottom: 15px;
+
+        border-radius: 20px;
+
+        font-size: 44px;
+    }
+
+    .hero-image-fallback > span {
+        font-size: .68rem;
+    }
+
+    .hero-floating-card {
+        min-width: 0;
+
+        max-width: 180px;
+
+        padding: 10px;
+
+        gap: 9px;
+    }
+
+    .floating-icon,
+    .medicine-icon {
+        width: 34px;
+        height: 34px;
+
+        flex-basis: 34px;
+
+        border-radius: 9px;
+    }
+
+    .hero-floating-card strong {
+        font-size: .66rem;
+    }
+
+    .hero-floating-card small {
+        font-size: .52rem;
+    }
+
+    .card-top {
+        left: 8px;
+        top: 12px;
+    }
+
+    .card-bottom {
+        right: 8px;
+        bottom: 12px;
+    }
+
+    .intro-grid,
+    .presence-grid {
+        gap: 30px;
+    }
+
+    .intro-copy .large-text {
+        font-size: 1.05rem;
+    }
+
+    .journey-grid,
+    .why-grid,
+    .medicine-grid,
+    .products-grid,
+    .presence-location-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .journey-card {
+        min-height: auto;
+    }
+
+    .medicine-card {
+        min-height: 175px;
+    }
+
+    .india-card {
+        min-height: 330px;
+    }
+
+    .india-map-placeholder {
+        font-size: 3rem;
+    }
+
+    .presence-stat {
+        min-width: 125px;
+
+        padding: 10px 12px;
+    }
+
+    .stat-one {
+        top: 20px;
+        left: 15px;
+    }
+
+    .stat-two {
+        top: 90px;
+        right: 15px;
+    }
+
+    .stat-three {
+        left: 20px;
+        bottom: 20px;
+    }
+
+    .partnership-box {
+        padding: 32px 24px;
+    }
+
+    .partnership-box .btn {
+        width: 100%;
+    }
+
+    .final-cta-inner {
+        display: grid;
+
+        grid-template-columns:
+            48px 1fr;
+
+        gap: 18px;
+    }
+
+    .final-cta-icon {
+        width: 48px;
+        height: 48px;
+
+        flex-basis: 48px;
+    }
+
+    .final-cta-inner .btn {
+        grid-column: 1 / -1;
+
+        width: 100%;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+
+        margin-top: 40px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-form-card {
+        padding: 28px 22px;
+    }
+
+    .product-filters {
+        justify-content: flex-start;
+    }
+
+    .product-filter {
+        padding-inline: 14px;
+    }
+
+    .product-modal {
+        padding: 12px;
+    }
+
+    .product-modal-content {
+        padding: 35px 25px;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+
+        animation-duration:
+            .01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        transition-duration:
+            .01ms !important;
+    }
+}
+
+
+/* =========================================================
+   PRINT
+   ========================================================= */
+
+@media print {
+
+    .site-header,
+    .nav-cta,
+    .menu-toggle,
+    .hero-buttons,
+    .product-filters,
+    .product-search,
+    .contact-form-card,
+    .site-footer {
+        display: none !important;
+    }
+
+    body {
+        color: #000;
+        background: #fff;
+    }
+
+    .section,
+    .page-hero {
+        padding: 30px 0;
+    }
+
+    .page-hero {
+        min-height: auto;
+        background: #fff;
+    }
+
+    .page-hero h1 {
+        color: #000;
+    }
+
+    .page-hero p {
+        color: #333;
+    }
+}
