@@ -666,65 +666,210 @@ button{font:inherit}
 }
 
 /* =========================
-   PRESENCE
+   PRESENCE — MAP UI
 ========================= */
-.presence{background:#fff}
-.presence-grid{
+.presence{background:#f7faff}
+.presence-header{
     display:grid;
-    grid-template-columns:.9fr 1.1fr;
-    gap:80px;
-    align-items:center;
+    grid-template-columns:1fr .75fr;
+    gap:70px;
+    align-items:end;
+    margin-bottom:42px;
 }
-.presence-copy p{
-    max-width:590px;
-    margin:24px 0 30px;
+.presence-header h2{
+    margin-top:17px;
+    color:var(--navy);
+    font:800 clamp(2.3rem,4vw,4rem)/1.05 Manrope,Arial,sans-serif;
+    letter-spacing:-.05em;
+}
+.presence-header h2 span{color:var(--blue)}
+.presence-header > p{
+    max-width:510px;
     color:var(--muted);
+    line-height:1.85;
 }
-.india-visual{
-    min-height:420px;
-    position:relative;
-    display:grid;
-    place-items:center;
+.india-map-card{
     overflow:hidden;
-    border-radius:28px;
-    background:linear-gradient(145deg,#edf7ff,#f5f0ff);
+    border:1px solid #dbe6f1;
+    border-radius:30px;
+    background:#fff;
     box-shadow:var(--shadow);
 }
-.india-glow{
-    position:absolute;
-    width:360px;
-    height:360px;
-    border-radius:50%;
-    background:radial-gradient(circle,rgba(23,105,210,.22),transparent 68%);
+.map-topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+    padding:27px 32px;
+    border-bottom:1px solid #e5edf5;
 }
-.india-word{
-    position:relative;
-    color:#b7cde6;
-    font:800 6rem Manrope,Arial,sans-serif;
-    letter-spacing:.05em;
+.map-kicker{
+    color:var(--blue);
+    font:800 .64rem Manrope,Arial,sans-serif;
+    letter-spacing:.16em;
 }
-.location-pill{
-    position:absolute;
-    padding:12px 15px;
+.map-topbar h3{
+    margin-top:5px;
+    color:var(--navy);
+    font:800 1.35rem Manrope,Arial,sans-serif;
+}
+.map-count{
+    min-width:105px;
+    padding:10px 14px;
+    text-align:center;
+    border:1px solid #dce8f4;
     border-radius:12px;
-    background:#fff;
-    box-shadow:0 12px 30px rgba(7,26,53,.11);
+    background:#f7fbff;
 }
-.location-pill strong{
+.map-count strong{
     display:block;
     color:var(--blue);
-    font:800 .65rem Manrope,Arial,sans-serif;
+    font:800 1.35rem Manrope,Arial,sans-serif;
+    line-height:1;
 }
-.location-pill span{
+.map-count span{
     display:block;
-    margin-top:2px;
-    color:var(--navy);
-    font-size:.70rem;
+    margin-top:4px;
+    color:#8191a5;
+    font-size:.62rem;
     font-weight:700;
 }
-.location-one{top:48px;left:28px}
-.location-two{right:28px;top:135px}
-.location-three{left:42px;bottom:48px}
+.map-stage{
+    position:relative;
+    min-height:570px;
+    overflow:hidden;
+    background:
+        radial-gradient(circle at 50% 48%,rgba(58,145,255,.13),transparent 30%),
+        linear-gradient(145deg,#f7fbff,#f1f5ff);
+}
+.map-grid-lines{
+    position:absolute;
+    inset:0;
+    opacity:.55;
+    background-image:
+        linear-gradient(rgba(77,126,177,.07) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(77,126,177,.07) 1px,transparent 1px);
+    background-size:46px 46px;
+}
+.india-silhouette{
+    position:absolute;
+    left:50%;
+    top:50%;
+    width:300px;
+    height:390px;
+    transform:translate(-50%,-50%);
+    clip-path:polygon(
+        43% 0%,58% 5%,63% 15%,77% 23%,72% 34%,86% 45%,
+        73% 54%,78% 66%,68% 76%,59% 91%,51% 100%,45% 87%,
+        37% 78%,30% 67%,23% 58%,18% 47%,25% 39%,19% 29%,
+        29% 21%,27% 11%
+    );
+    background:linear-gradient(145deg,#dceeff,#e9e1ff);
+    box-shadow:inset 0 0 0 1px rgba(23,105,210,.10);
+}
+.india-silhouette:after{
+    content:"";
+    position:absolute;
+    inset:12%;
+    clip-path:inherit;
+    background:linear-gradient(145deg,rgba(23,105,210,.10),rgba(115,87,217,.09));
+}
+.india-label{
+    position:absolute;
+    left:50%;
+    top:45%;
+    transform:translate(-50%,-50%);
+    z-index:2;
+    color:rgba(7,26,53,.14);
+    font:800 3.4rem Manrope,Arial,sans-serif;
+    letter-spacing:.06em;
+}
+.map-outline{display:none}
+.map-location{
+    position:absolute;
+    z-index:5;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    padding:0;
+    border:0;
+    background:transparent;
+    text-align:left;
+    cursor:pointer;
+    font:inherit;
+}
+.map-pin{
+    position:relative;
+    width:18px;
+    height:18px;
+    flex:0 0 18px;
+    border-radius:50% 50% 50% 0;
+    background:var(--blue);
+    transform:rotate(-45deg);
+    box-shadow:0 5px 16px rgba(23,105,210,.28);
+}
+.map-pin i{
+    position:absolute;
+    width:6px;
+    height:6px;
+    left:6px;
+    top:6px;
+    border-radius:50%;
+    background:#fff;
+}
+.map-location-info{
+    min-width:105px;
+    padding:9px 12px;
+    border:1px solid #d9e5f0;
+    border-radius:10px;
+    background:rgba(255,255,255,.95);
+    box-shadow:0 9px 22px rgba(7,26,53,.09);
+    transition:.2s ease;
+}
+.map-location:hover .map-location-info{
+    transform:translateY(-3px);
+    border-color:#bcd4ec;
+    box-shadow:0 13px 28px rgba(7,26,53,.13);
+}
+.map-location-info strong{
+    display:block;
+    color:var(--navy);
+    font:800 .72rem Manrope,Arial,sans-serif;
+}
+.map-location-info small{
+    display:block;
+    margin-top:2px;
+    color:#7b8da2;
+    font-size:.57rem;
+    font-weight:600;
+}
+/* Deliberately arranged around the stylized India shape for clean UI. */
+.location-1{left:8%;top:14%}
+.location-2{left:8%;top:37%}
+.location-3{left:12%;top:63%}
+.location-4{left:29%;top:78%}
+.location-5{right:7%;top:69%}
+.location-6{right:5%;top:44%}
+.location-7{right:9%;top:20%}
+.location-8{left:42%;bottom:7%}
+.map-legend{
+    position:absolute;
+    left:28px;
+    bottom:25px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    color:#72849a;
+    font-size:.65rem;
+    font-weight:700;
+}
+.legend-dot{
+    width:9px;
+    height:9px;
+    border-radius:50%;
+    background:var(--blue);
+    box-shadow:0 0 0 4px rgba(23,105,210,.10);
+}
 
 /* =========================
    BUSINESS CTA
@@ -841,7 +986,7 @@ button{font:inherit}
     .main-nav{gap:20px}
     .nav-cta{display:none}
     .intro-grid,
-    .presence-grid{grid-template-columns:1fr;gap:45px}
+    .presence-header{grid-template-columns:1fr;gap:20px}
     .hero-content{padding-top:140px}
     .capability-grid,
     .why-grid{grid-template-columns:repeat(2,1fr)}
@@ -1388,92 +1533,122 @@ button{font:inherit}
 <!-- INDIA PRESENCE -->
 <section class="section presence">
     <div class="container">
-        <div class="presence-grid">
-
-            <div class="presence-copy reveal">
+        <div class="presence-header reveal">
+            <div>
                 <div class="section-label"><span>05</span> OUR PRESENCE</div>
+                <h2>Our presence across <span>India.</span></h2>
+            </div>
+            <p>
+                Tavisa Life Sciences is building a growing market presence across
+                India, connecting its medicine brands with healthcare and business
+                relationships in key locations.
+            </p>
+        </div>
 
-                <h2>
-                    Rooted in India.<br>
-                    <span>Growing with purpose.</span>
-                </h2>
-
-                <p>
-                    Tavisa Life Sciences is building its pharmaceutical presence
-                    across India, with a focus on medicine brands, market
-                    development and stronger healthcare relationships.
-                </p>
-
-                <a href="about.html" class="btn btn-primary">
-                    Explore Our Presence <span>→</span>
-                </a>
+        <div class="india-map-card reveal">
+            <div class="map-topbar">
+                <div>
+                    <span class="map-kicker">TAVISA LIFE SCIENCES</span>
+                    <h3>India Presence Network</h3>
+                </div>
+                <div class="map-count">
+                    <strong>11</strong>
+                    <span>Locations</span>
+                </div>
             </div>
 
-            <div class="india-visual reveal">
-                <div class="india-glow"></div>
-                <div class="india-word">INDIA</div>
-
-                <div class="location-pill location-one">
-                    <strong>01</strong>
-                    <span>New Delhi</span>
+            <div class="map-stage">
+                <div class="map-grid-lines"></div>
+                <div class="india-silhouette" aria-label="Stylized India map">
+                    <span class="india-label">INDIA</span>
+                    <span class="map-outline map-outline-a"></span>
+                    <span class="map-outline map-outline-b"></span>
                 </div>
 
-                <div class="location-pill location-two">
-                    <strong>02</strong>
-                    <span>Gorakhpur</span>
-                </div>
-
-                <div class="location-pill location-two">
-                    <strong>02</strong>
-                    <span>Banaras</span>
-                </div>
-
-                <div class="location-pill location-two">
-                    <strong>02</strong>
-                    <span>Ghazipur</span>
-                </div>
-
-                <div class="location-pill location-two">
-                    <strong>02</strong>
-                    <span>Deoria</span>
-                </div>
-
-                <div class="location-pill location-two">
-                    <strong>02</strong>
-                    <span>Kushinagar</span>
-                </div>
-
-                <div class="location-pill location-two">
-                    <strong>02</strong>
-                    <span>Azamgarh</span>
-                </div>
-
-                <div class="location-pill location-two">
-                    <strong>02</strong>
-                    <span>Basti</span>
-                </div>
-
-                <div class="location-pill location-two">
-                    <strong>02</strong>
-                    <span>Maharajganj</span>
-                </div>
-
-                <div class="location-pill location-two">
-                    <strong>02</strong>
-                    <span>Mau</span>
-                </div>
-
-                <div class="location-pill location-two">
-                    <strong>02</strong>
-                    <span>Sant Kabir Nagar</span>
-                </div>
                 
-                <div class="location-pill location-three">
-                    <strong>+</strong>
-                    <span>Growing Presence</span>
+                    <button class="map-location location-1" type="button" data-location="New Delhi">
+                        <span class="map-pin"><i></i></span>
+                        <span class="map-location-info">
+                            <strong>New Delhi</strong>
+                            <small>India</small>
+                        </span>
+                    </button>
+                    <button class="map-location location-2" type="button" data-location="Gorakhpur">
+                        <span class="map-pin"><i></i></span>
+                        <span class="map-location-info">
+                            <strong>Gorakhpur</strong>
+                            <small>Uttar Pradesh</small>
+                        </span>
+                    </button>
+                    <button class="map-location location-3" type="button" data-location="Banaras">
+                        <span class="map-pin"><i></i></span>
+                        <span class="map-location-info">
+                            <strong>Banaras</strong>
+                            <small>Uttar Pradesh</small>
+                        </span>
+                    </button>
+                    <button class="map-location location-4" type="button" data-location="Ghazipur">
+                        <span class="map-pin"><i></i></span>
+                        <span class="map-location-info">
+                            <strong>Ghazipur</strong>
+                            <small>Uttar Pradesh</small>
+                        </span>
+                    </button>
+                    <button class="map-location location-5" type="button" data-location="Deoria">
+                        <span class="map-pin"><i></i></span>
+                        <span class="map-location-info">
+                            <strong>Deoria</strong>
+                            <small>Uttar Pradesh</small>
+                        </span>
+                    </button>
+                    <button class="map-location location-6" type="button" data-location="Kushinagar">
+                        <span class="map-pin"><i></i></span>
+                        <span class="map-location-info">
+                            <strong>Kushinagar</strong>
+                            <small>Uttar Pradesh</small>
+                        </span>
+                    </button>
+                    <button class="map-location location-7" type="button" data-location="Basti">
+                        <span class="map-pin"><i></i></span>
+                        <span class="map-location-info">
+                            <strong>Basti</strong>
+                            <small>Uttar Pradesh</small>
+                        </span>
+                    </button>
+                    <button class="map-location location-8" type="button" data-location="Azamgarh">
+                        <span class="map-pin"><i></i></span>
+                        <span class="map-location-info">
+                            <strong>Azamgarh</strong>
+                            <small>Uttar Pradesh</small>
+                        </span>
+                    </button>
+                    <button class="map-location location-9" type="button" data-location="Maharajganj">
+                        <span class="map-pin"><i></i></span>
+                        <span class="map-location-info">
+                            <strong>Maharajganj</strong>
+                            <small>Uttar Pradesh</small>
+                        </span>
+                    </button>
+                    <button class="map-location location-10" type="button" data-location="Mau">
+                        <span class="map-pin"><i></i></span>
+                        <span class="map-location-info">
+                            <strong>Mau</strong>
+                            <small>Uttar Pradesh</small>
+                        </span>
+                    </button>
+                    <button class="map-location location-11" type="button" data-location="Sant Kabir Nagar">
+                        <span class="map-pin"><i></i></span>
+                        <span class="map-location-info">
+                            <strong>Sant Kabir Nagar</strong>
+                            <small>Uttar Pradesh</small>
+                        </span>
+                    </button>
+
+                <div class="map-legend">
+                    <span class="legend-dot"></span>
+                    <span>Tavisa presence</span>
                 </div>
             </div>
-
         </div>
     </div>
 </section>
