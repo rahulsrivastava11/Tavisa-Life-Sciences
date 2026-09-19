@@ -107,6 +107,16 @@ button{border:0}
     font-family:"Manrope",Arial,sans-serif;
     font-weight:800;
 }
+
+.brand-logo{
+    width:45px;
+    height:45px;
+    display:block;
+    object-fit:contain;
+    object-position:center;
+    flex:0 0 45px;
+}
+
 .brand-text{display:flex;flex-direction:column;line-height:1}
 .brand-text strong{
     color:var(--navy);
@@ -683,6 +693,76 @@ button{border:0}
     font-size:.67rem;
 }
 
+
+/* ---------- FEATURED MEDICINE IMAGE SETUP ---------- */
+.featured-products{background:#fff}
+.featured-product-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+.featured-product-card{
+    padding:17px;
+    border:1px solid var(--border);
+    border-radius:22px;
+    background:#fff;
+    box-shadow:var(--shadow-xs);
+    transition:transform var(--transition),box-shadow var(--transition),border-color var(--transition);
+}
+.featured-product-card:hover{
+    transform:translateY(-6px);
+    border-color:rgba(20,100,210,.20);
+    box-shadow:var(--shadow-md);
+}
+.product-image-box{
+    width:100%;
+    height:205px;
+    display:grid;
+    place-items:center;
+    overflow:hidden;
+    margin-bottom:17px;
+    border-radius:16px;
+    border:1px solid #e5edf4;
+    background:
+        radial-gradient(circle at 20% 20%,rgba(20,100,210,.12),transparent 38%),
+        linear-gradient(135deg,#f4f8fc,#eaf5f5);
+}
+.product-image-box img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    padding:15px;
+}
+.product-image-placeholder{
+    width:86px;
+    height:86px;
+    place-items:center;
+    text-align:center;
+    border-radius:20px;
+    background:#fff;
+    border:1px dashed #b8c8d8;
+    color:var(--blue);
+    font-family:"Manrope",Arial,sans-serif;
+    font-size:.62rem;
+    font-weight:800;
+    line-height:1.3;
+}
+.product-image-placeholder small{
+    color:var(--muted);
+    font-size:.44rem;
+    letter-spacing:.07em;
+}
+.featured-product-card h3{
+    color:var(--navy);
+    font-family:"Manrope",Arial,sans-serif;
+    font-size:.94rem;
+    margin-bottom:4px;
+}
+.featured-product-card p{
+    color:var(--muted);
+    font-size:.65rem;
+}
+
 /* ---------- CTA ---------- */
 .about-cta{
     background:var(--off-white);
@@ -910,6 +990,15 @@ button{border:0}
 }
 
 @media(max-width:600px){
+    .featured-product-grid{grid-template-columns:1fr;}
+    .product-image-box{height:220px;}
+
+    .brand-logo{
+        width:40px;
+        height:40px;
+        flex-basis:40px;
+    }
+
     .container{width:calc(100% - 30px)}
     .section{padding:75px 0}
     .page-hero{min-height:470px;padding:95px 0 70px}
@@ -958,9 +1047,9 @@ button{border:0}
 
         <a href="index.html" class="brand">
 
-            <div class="brand-mark">
-                <span>T</span>
-            </div>
+            <img src="assets/images/tls-logo.png"
+                 alt="Tavisa Life Sciences Logo"
+                 class="brand-logo">
 
             <div class="brand-text">
                 <strong>TAVISA</strong>
@@ -1914,6 +2003,148 @@ button{border:0}
 
 
 
+
+<!-- =========================================================
+     FEATURED MEDICINE IMAGE SETUP
+     Replace the image files later; no HTML/CSS changes needed.
+========================================================= -->
+<section class="section featured-products">
+    <div class="container">
+        <div class="section-heading centered">
+            <div class="section-label">
+                <span>07</span>
+                FEATURED MEDICINES
+            </div>
+            <h2>Our portfolio of <span>medicine brands.</span></h2>
+            <p>
+                Replace the placeholder product images with your actual packshots.
+                The image paths below are already connected to the cards.
+            </p>
+        </div>
+
+        <div class="featured-product-grid">
+
+            <article class="featured-product-card">
+                <div class="product-image-box">
+                    <img src="assets/images/products/tasibone.png"
+                         alt="Tasibone S/G Capsule"
+                         onerror="this.style.display='none';this.nextElementSibling.style.display='grid';">
+                    <div class="product-image-placeholder" style="display:none;">
+                        TAVISA<br><small>PRODUCT IMAGE</small>
+                    </div>
+                </div>
+                <h3>Tasibone S/G Capsule</h3>
+                <p>View product portfolio</p>
+            </article>
+
+            <article class="featured-product-card">
+                <div class="product-image-box">
+                    <img src="assets/images/products/toifer-zf.png"
+                         alt="Toifer-ZF"
+                         onerror="this.style.display='none';this.nextElementSibling.style.display='grid';">
+                    <div class="product-image-placeholder" style="display:none;">
+                        TAVISA<br><small>PRODUCT IMAGE</small>
+                    </div>
+                </div>
+                <h3>Toifer-ZF</h3>
+                <p>View product portfolio</p>
+            </article>
+
+            <article class="featured-product-card">
+                <div class="product-image-box">
+                    <img src="assets/images/products/intogyn.png"
+                         alt="Intogyn"
+                         onerror="this.style.display='none';this.nextElementSibling.style.display='grid';">
+                    <div class="product-image-placeholder" style="display:none;">
+                        TAVISA<br><small>PRODUCT IMAGE</small>
+                    </div>
+                </div>
+                <h3>Intogyn</h3>
+                <p>View product portfolio</p>
+            </article>
+
+            <article class="featured-product-card">
+                <div class="product-image-box">
+                    <img src="assets/images/products/lipene-ds.png"
+                         alt="Lipene-DS"
+                         onerror="this.style.display='none';this.nextElementSibling.style.display='grid';">
+                    <div class="product-image-placeholder" style="display:none;">
+                        TAVISA<br><small>PRODUCT IMAGE</small>
+                    </div>
+                </div>
+                <h3>Lipene-DS</h3>
+                <p>View product portfolio</p>
+            </article>
+
+            <article class="featured-product-card">
+                <div class="product-image-box">
+                    <img src="assets/images/products/ribdom-sr.png"
+                         alt="Ribdom-SR"
+                         onerror="this.style.display='none';this.nextElementSibling.style.display='grid';">
+                    <div class="product-image-placeholder" style="display:none;">
+                        TAVISA<br><small>PRODUCT IMAGE</small>
+                    </div>
+                </div>
+                <h3>Ribdom-SR</h3>
+                <p>View product portfolio</p>
+            </article>
+
+            <article class="featured-product-card">
+                <div class="product-image-box">
+                    <img src="assets/images/products/toycolvit-plus.png"
+                         alt="Toycolvit Plus"
+                         onerror="this.style.display='none';this.nextElementSibling.style.display='grid';">
+                    <div class="product-image-placeholder" style="display:none;">
+                        TAVISA<br><small>PRODUCT IMAGE</small>
+                    </div>
+                </div>
+                <h3>Toycolvit Plus</h3>
+                <p>View product portfolio</p>
+            </article>
+
+            <article class="featured-product-card">
+                <div class="product-image-box">
+                    <img src="assets/images/products/anvogyn-ax.png"
+                         alt="Anvogyn AX"
+                         onerror="this.style.display='none';this.nextElementSibling.style.display='grid';">
+                    <div class="product-image-placeholder" style="display:none;">
+                        TAVISA<br><small>PRODUCT IMAGE</small>
+                    </div>
+                </div>
+                <h3>Anvogyn AX</h3>
+                <p>View product portfolio</p>
+            </article>
+
+            <article class="featured-product-card">
+                <div class="product-image-box">
+                    <img src="assets/images/products/anvogyn-syrup.png"
+                         alt="Anvogyn Syrup"
+                         onerror="this.style.display='none';this.nextElementSibling.style.display='grid';">
+                    <div class="product-image-placeholder" style="display:none;">
+                        TAVISA<br><small>PRODUCT IMAGE</small>
+                    </div>
+                </div>
+                <h3>Anvogyn Syrup</h3>
+                <p>View product portfolio</p>
+            </article>
+
+            <article class="featured-product-card">
+                <div class="product-image-box">
+                    <img src="assets/images/products/dyvero.png"
+                         alt="Dyvero"
+                         onerror="this.style.display='none';this.nextElementSibling.style.display='grid';">
+                    <div class="product-image-placeholder" style="display:none;">
+                        TAVISA<br><small>PRODUCT IMAGE</small>
+                    </div>
+                </div>
+                <h3>Dyvero</h3>
+                <p>View product portfolio</p>
+            </article>
+
+        </div>
+    </div>
+</section>
+
 <!-- =========================================================
      CTA
 ========================================================= -->
@@ -2150,4 +2381,6 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 
 </body>
+</html>
+
 </html>
